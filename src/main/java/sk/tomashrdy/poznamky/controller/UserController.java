@@ -6,6 +6,7 @@ import sk.tomashrdy.poznamky.model.User;
 import sk.tomashrdy.poznamky.service.UserService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -20,7 +21,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) {
+    public Optional<User> getUserById(@PathVariable Long id) {
         return userService.findById(id);
     }
 
