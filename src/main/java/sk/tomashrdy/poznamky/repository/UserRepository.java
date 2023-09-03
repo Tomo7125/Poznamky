@@ -8,5 +8,14 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+
+    // Vyhľadá používateľa podľa mena (už máte)
     Optional<User> findByUsername(String username);
+
+    // Skontroluje, či používateľ s daným menom už existuje
+    boolean existsByUsername(String username);
+
+    // V prípade, že by ste chceli podporovať prihlásenie pomocou e-mailu
+    Optional<User> findByEmail(String email);
+    boolean existsByEmail(String email);
 }
